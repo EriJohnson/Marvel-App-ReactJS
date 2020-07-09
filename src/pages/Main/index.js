@@ -11,8 +11,8 @@ import {
   Header,
   HeaderContainer,
   SearchBar,
-  Actions,
-  ListContainer,
+  ActionsContainer,
+  Action,
   List,
   Card,
 } from './styles'
@@ -48,16 +48,20 @@ export default function Main() {
           <SearchBar>
             <FiSearch name='linkedin' color='#fff' size={32} />
           </SearchBar>
-          <Actions>
-            <FiLinkedin name='linkedin' color='#fff' size={32} />
-            <FiInstagram name='linkedin' color='#fff' size={32} />
-          </Actions>
+          <ActionsContainer>
+            <Action>
+              <FiLinkedin name='linkedin' color='#fff' size={32} />
+            </Action>
+            <Action>
+              <FiInstagram name='linkedin' color='#fff' size={32} />
+            </Action>
+          </ActionsContainer>
         </HeaderContainer>
       </Header>
 
       <List>
         {heroes.map(hero => (
-          <Link to='/'>
+          <Link to={`/details/${hero.id}`}>
             <Card key={hero.id}>
               <img
                 src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`}

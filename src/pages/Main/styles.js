@@ -23,10 +23,11 @@ export const HeaderContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 1280px;
+  max-width: 1080px;
 
   span {
     font-weight: bold;
+    font-size: 24px;
   }
 `
 export const SearchBar = styled.button`
@@ -50,9 +51,13 @@ export const SearchBar = styled.button`
   }
 `
 
-export const Actions = styled.div`
+export const ActionsContainer = styled.div`
   display: flex;
   align-items: center;
+`
+
+export const Action = styled.div`
+  margin-left: 24px;
 `
 export const List = styled.ul`
   display: grid;

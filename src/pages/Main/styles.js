@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import img from '../../assets/imgs/HomeBackground.png'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -8,9 +7,8 @@ export const Wrapper = styled.div`
   align-items: center;
   width: 100%;
   height: 100vh;
-  background-image: url(${img});
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: linear-gradient(180deg, #02376a 0%, #001220 100%);
+  overflow: scroll;
 `
 
 export const Header = styled.div`
@@ -18,6 +16,7 @@ export const Header = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 80px;
+  margin-bottom: 64px;
 `
 export const HeaderContainer = styled.div`
   display: flex;
@@ -32,7 +31,7 @@ export const HeaderContainer = styled.div`
 `
 export const SearchBar = styled.button`
   display: flex;
-  justify-content: center;
+  justify-content: c;
   align-items: center;
   width: 480px;
   height: 64px;
@@ -54,4 +53,55 @@ export const SearchBar = styled.button`
 export const Actions = styled.div`
   display: flex;
   align-items: center;
+`
+export const List = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 40px;
+  list-style: none;
+  margin-bottom: 280px;
+`
+export const Card = styled.li`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 240px;
+  height: 280px;
+  background: #f7f7f8;
+  padding: 24px;
+  border-radius: 8px;
+  
+  img{
+    height: 112px;
+    width: 112px;
+    border-radius: 56px;
+    margin-bottom: 16px;
+  }
+
+  h3{
+    color:#212529;
+    margin-bottom: 16px;
+  }
+
+  button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 112px;
+  height: 24px;
+  border-radius: 240px;
+  background: #f2141f;
+  color: #fff;
+  font-weight: bold;
+  transition: 0.2s;
+  font-size: 12px;
+  border: 2px solid transparent;
+
+  text-transform: uppercase;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
 `

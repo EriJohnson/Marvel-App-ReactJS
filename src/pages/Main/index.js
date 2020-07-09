@@ -1,21 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import md5 from 'md5'
-import { FiLinkedin, FiInstagram, FiSearch } from 'react-icons/fi'
 
 import moment from 'moment'
 import 'moment/locale/pt-br'
 
-import {
-  Wrapper,
-  Header,
-  HeaderContainer,
-  SearchBar,
-  ActionsContainer,
-  Action,
-  List,
-  Card,
-} from './styles'
+import { Wrapper, List, Card } from './styles'
+
+import Header from '../../components/Header'
 
 const PUBLIC_KEY = process.env.REACT_APP_MARVEL_PUBLIC_KEY
 const PRIVATE_KEY = process.env.REACT_APP_MARVEL_PRIVATE_KEY
@@ -39,25 +31,7 @@ export default function Main() {
 
   return (
     <Wrapper>
-      <Header>
-        <HeaderContainer>
-          <Link to='/'>
-            <span>Marvel App</span>
-          </Link>
-
-          <SearchBar>
-            <FiSearch name='linkedin' color='#fff' size={32} />
-          </SearchBar>
-          <ActionsContainer>
-            <Action>
-              <FiLinkedin name='linkedin' color='#fff' size={32} />
-            </Action>
-            <Action>
-              <FiInstagram name='linkedin' color='#fff' size={32} />
-            </Action>
-          </ActionsContainer>
-        </HeaderContainer>
-      </Header>
+      <Header />
 
       <List>
         {heroes.map(hero => (

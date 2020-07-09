@@ -1,8 +1,12 @@
 import styled from 'styled-components'
 
-export const Container = styled.div``
-
-export const Header = styled.div`
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   width: 100%;
-  background: blue;
+  height: 100vh;
+  background: linear-gradient(180deg, #02376a 0%, #001220 100%);
+  overflow: scroll;
 `

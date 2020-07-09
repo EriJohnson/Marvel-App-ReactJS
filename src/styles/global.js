@@ -17,4 +17,8 @@ button{
  button, input {
    outline: 0;
  }
+
+ a{
+  text-decoration-line: none;
+ }
 `

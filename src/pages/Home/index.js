@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import Heroes from '../../assets/imgs/Heroes.png'
 
@@ -13,7 +14,9 @@ export default function Home() {
           <p>
             Uma aplicação para você conhecer detalhes dos seus heróis favoritos
           </p>
-          <Button>Conheça seus Heróis</Button>
+          <Link to='/main/'>
+            <Button>Conheça seus heróis</Button>
+          </Link>
         </Section>
 
         <img src={Heroes} alt='Heróis da Marvel' />

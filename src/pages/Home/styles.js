@@ -23,6 +23,7 @@ export const Content = styled.div`
 `
 export const Section = styled.section`
   width: 100%;
+  margin-bottom: 244px;
 
   h1 {
     font-size: 96px;
@@ -34,26 +35,19 @@ export const Section = styled.section`
     font-size: 28px;
     margin-bottom: 28px;
   }
-
-  button {
-    width: 330px;
-    height: 80px;
-    text-transform: uppercase;
-    font-size: 24px;
-    font-weight: bold;
-  }
 `
 
 export const Button = styled.button`
-  width: 100%;
-  height: 40px;
+  width: 330px;
+  height: 80px;
   background: #f2141f;
   color: #fff;
   font-weight: bold;
   transition: 0.2s;
-  font-size: 14px;
+  font-size: 24px;
   border: 2px solid transparent;
   margin-top: 16px;
+  text-transform: uppercase;
 
   &:hover {
     opacity: 0.8;

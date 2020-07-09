@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import md5 from 'md5'
 import { FiLinkedin, FiInstagram, FiSearch } from 'react-icons/fi'
+
+import moment from 'moment'
+import 'moment/locale/pt-br'
+
 import {
   Wrapper,
   Header,
@@ -53,11 +57,16 @@ export default function Main() {
 
       <List>
         {heroes.map(hero => (
-          <Card key={hero.id}>
-            <img src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`} />
-            <h3>{hero.name}</h3>
-            <button>Detalhes</button>
-          </Card>
+          <Link to='/'>
+            <Card key={hero.id}>
+              <img
+                src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`}
+                alt={hero.description}
+              />
+              <h3>{hero.name}</h3>
+              <span>{moment(hero.modified).format('LL')}</span>
+            </Card>
+          </Link>
         ))}
       </List>
     </Wrapper>

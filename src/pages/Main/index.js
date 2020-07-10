@@ -10,6 +10,7 @@ import { Wrapper, List, Card } from './styles'
 
 import Header from '../../components/Header'
 
+const API_BASE = process.env.REACT_APP_MARVEL_API_BASE
 const PUBLIC_KEY = process.env.REACT_APP_MARVEL_PUBLIC_KEY
 const PRIVATE_KEY = process.env.REACT_APP_MARVEL_PRIVATE_KEY
 
@@ -23,7 +24,7 @@ export default function Main() {
 
       const ts = new Date().getTime()
       const hash = md5(`${ts}${PRIVATE_KEY}${PUBLIC_KEY}`)
-      const url = `http://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}&offset=77`
+      const url = `${API_BASE}?ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}&offset=77`
       const resp = await fetch(url)
       const { data } = await resp.json()
       setHeroes(data.results)

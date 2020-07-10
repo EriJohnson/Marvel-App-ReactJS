@@ -86,7 +86,7 @@ export const Thumbnail = styled.div`
 export const Details = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
   height: 100%;
   min-width: 50%;

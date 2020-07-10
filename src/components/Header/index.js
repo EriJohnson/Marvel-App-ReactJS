@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import { FiLinkedin, FiInstagram } from 'react-icons/fi'
 
-import { Container, Logo, ActionsContainer, Action } from './styles'
+import { Container, ActionsContainer, Action } from './styles'
 
 import logo from '../../assets/imgs/MarvelLogo.svg'
 
@@ -14,7 +14,7 @@ export default function Header() {
         <span>Marvel App</span>
       </Link>
 
-      <img src={logo} />
+      <img src={logo} alt='Logo clássico da Marvel' />
 
       <ActionsContainer>
         <Action>

@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import md5 from 'md5'
 import Loader from 'react-loader-spinner'
+import { FiArrowLeft } from 'react-icons/fi'
 
-// import moment from 'moment'
-// import 'moment/locale/pt-br'
-
-import { Wrapper, Card, Thumbnail, Details } from './styles'
+import { Wrapper, Card, Thumbnail, Details, Button } from './styles'
 
 import Header from '../../components/Header'
 
@@ -78,6 +76,12 @@ export default function Main() {
           </Details>
         </Card>
       )}
+      <Link to='/main'>
+        <Button>
+          <FiArrowLeft size={16} />
+          Voltar
+        </Button>
+      </Link>
     </Wrapper>
   )
 }

@@ -78,8 +78,8 @@ export const Thumbnail = styled.div`
   min-width: 50%;
 
   img {
-    width: 90%;
-    margin-bottom: 16px;
+    max-width: 90%;
+    max-height: 448px;
   }
 `
 
@@ -90,4 +90,26 @@ export const Details = styled.div`
   align-items: flex-start;
   height: 100%;
   min-width: 50%;
+`
+export const Button = styled.button`
+  margin: 24px 0;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 128px;
+  height: 32px;
+  border-radius: 8px;
+  background: #f2141f;
+  color: #fff;
+  font-weight: bold;
+  transition: 0.2s;
+  font-size: 14px;
+  border: 2px solid transparent;
+
+  text-transform: uppercase;
+
+  &:hover {
+    opacity: 0.8;
+  }
 `

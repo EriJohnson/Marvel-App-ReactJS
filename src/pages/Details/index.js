@@ -15,7 +15,7 @@ const PRIVATE_KEY = process.env.REACT_APP_MARVEL_PRIVATE_KEY
 export default function Main() {
   const { id } = useParams()
   const [details, setDetails] = useState([])
-  const [comics, setComics] = useState([])
+  const [listComics, setListComics] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
@@ -31,7 +31,7 @@ export default function Main() {
       const { comics } = results[0]
 
       setDetails(results[0])
-      setComics(comics)
+      setListComics(comics)
 
       setIsLoading(false)
     })()
@@ -65,16 +65,26 @@ export default function Main() {
 
           <Details>
             <h2>Descrição</h2>
-            <p>{details.description}</p>
+            {details.description ? (
+              <>
+                <p>{details.description}</p>
+              </>
+            ) : (
+              <p>Indisponível</p>
+            )}
 
             <h2>Quadrinhos</h2>
-            <ul>
-              {comics.items &&
-                comics.items
-                  //Função para mostrar apenas dez quadrinhos
-                  .slice(0, 10)
-                  .map(item => <li key={item.name}>{item.name}</li>)}
-            </ul>
+            {listComics.items != 0 ? (
+              <ul>
+                {listComics.items &&
+                  listComics.items
+                    //Função para mostrar apenas dez quadrinhos
+                    .slice(0, 10)
+                    .map(item => <li key={item.name}>{item.name}</li>)}
+              </ul>
+            ) : (
+              <p>Indisponível</p>
+            )}
           </Details>
         </Card>
       )}

@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { FiLinkedin, FiInstagram, FiSearch } from 'react-icons/fi'
+import { FiLinkedin, FiInstagram } from 'react-icons/fi'
 
-import { Container, SearchBar, ActionsContainer, Action } from './styles'
+import { Container, Logo, ActionsContainer, Action } from './styles'
+
+import logo from '../../assets/imgs/MarvelLogo.svg'
 
 export default function Header() {
   return (
@@ -12,9 +14,8 @@ export default function Header() {
         <span>Marvel App</span>
       </Link>
 
-      <SearchBar>
-        <FiSearch name='linkedin' color='#fff' size={32} />
-      </SearchBar>
+      <img src={logo} />
+
       <ActionsContainer>
         <Action>
           <FiLinkedin name='linkedin' color='#fff' size={32} />

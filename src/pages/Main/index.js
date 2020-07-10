@@ -19,13 +19,11 @@ export default function Main() {
     ;(async () => {
       const ts = new Date().getTime()
       const hash = md5(`${ts}${PRIVATE_KEY}${PUBLIC_KEY}`)
-      const url = `http://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}`
+      const url = `http://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}&offset=77`
       const resp = await fetch(url)
-      const {
-        data: { results },
-      } = await resp.json()
-      setHeroes(results)
-      console.log(results)
+      const { data } = await resp.json()
+      setHeroes(data.results)
+      console.log(data.results)
     })()
   }, [])
 
@@ -35,13 +33,14 @@ export default function Main() {
 
       <List>
         {heroes.map(hero => (
-          <Link to={`/details/${hero.id}`}>
-            <Card key={hero.id}>
+          <Link key={hero.id} to={`/details/${hero.id}`}>
+            <Card>
               <img
                 src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`}
                 alt={hero.description}
               />
               <h3>{hero.name}</h3>
+              <h4>Ultima atualização</h4>
               <span>{moment(hero.modified).format('LL')}</span>
             </Card>
           </Link>

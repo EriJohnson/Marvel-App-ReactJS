@@ -48,6 +48,11 @@ export const Card = styled.li`
     margin-bottom: 16px;
   }
 
+  h4{
+    color:#212529;
+    margin-bottom: 2px;
+  }
+
   span{
     color:#212529;
   }

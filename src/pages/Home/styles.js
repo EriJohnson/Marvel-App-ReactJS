@@ -28,11 +28,11 @@ export const Section = styled.section`
   h1 {
     font-size: 96px;
     font-weight: bolder;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
   }
 
   p {
-    font-size: 28px;
+    font-size: 26px;
     margin-bottom: 28px;
   }
 `

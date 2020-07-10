@@ -15,6 +15,12 @@ export const Container = styled.div`
   span {
     font-weight: bold;
     font-size: 24px;
+
+    transition: 0.2s;
+
+    &:hover {
+      opacity: 0.8;
+    }
   }
 `
 
@@ -25,4 +31,9 @@ export const ActionsContainer = styled.div`
 
 export const Action = styled.div`
   margin-left: 24px;
+  transition: 0.2s;
+
+  &:hover {
+    opacity: 0.8;
+  }
 `

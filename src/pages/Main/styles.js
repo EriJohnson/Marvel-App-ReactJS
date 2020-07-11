@@ -65,26 +65,23 @@ export const Pagination = styled.div`
   justify-content: space-between;
   margin-bottom: 64px;
 
-  button{
-    
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 64px;
-  height: 64px;
-  border-radius: 32px;
-  background: #f2141f;
-  color: #fff;
-  font-weight: bold;
-  transition: 0.2s;
-  font-size: 12px;
-  border: 2px solid transparent;
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 32px;
+    background: #f2141f;
+    color: #fff;
+    font-weight: bold;
+    transition: 0.2s;
+    font-size: 12px;
+    border: 2px solid transparent;
+    text-transform: uppercase;
 
-  text-transform: uppercase;
-
-  &:hover {
-    opacity: 0.8;
+    &:hover {
+      opacity: 0.8;
+    }
   }
-  
-
 `

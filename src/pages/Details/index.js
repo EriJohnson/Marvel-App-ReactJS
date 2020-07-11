@@ -74,7 +74,7 @@ export default function Main() {
             )}
 
             <h2>Quadrinhos</h2>
-            {listComics.items !== 0 ? (
+            {listComics.items > 0 ? (
               <ul>
                 {listComics.items &&
                   listComics.items
@@ -91,7 +91,6 @@ export default function Main() {
       <Link to='/main'>
         <Button>
           <FiArrowLeft size={16} />
-          Voltar
         </Button>
       </Link>
     </Wrapper>

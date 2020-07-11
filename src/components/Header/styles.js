@@ -31,9 +31,10 @@ export const ActionsContainer = styled.div`
 
 export const Action = styled.div`
   margin-left: 24px;
-  transition: 0.2s;
+  transition: 0.4s;
+  opacity: 0.72;
 
   &:hover {
-    opacity: 0.8;
+    opacity: 1;
   }
 `

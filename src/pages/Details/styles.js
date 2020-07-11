@@ -48,28 +48,8 @@ export const Card = styled.div`
   span {
     color: #212529;
   }
-
-  button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 112px;
-    height: 24px;
-    border-radius: 240px;
-    background: #f2141f;
-    color: #fff;
-    font-weight: bold;
-    transition: 0.2s;
-    font-size: 12px;
-    border: 2px solid transparent;
-
-    text-transform: uppercase;
-
-    &:hover {
-      opacity: 0.8;
-    }
-  }
 `
+
 export const Thumbnail = styled.div`
   display: flex;
   flex-direction: column;
@@ -90,16 +70,22 @@ export const Details = styled.div`
   align-items: flex-start;
   height: 100%;
   min-width: 50%;
+
+  p {
+    color: #212529;
+    margin-bottom: 14px;
+    font-size: 14px;
+  }
 `
 export const Button = styled.button`
-  margin: 24px 0;
+  margin: 32px 0;
   background-color: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 128px;
-  height: 32px;
-  border-radius: 8px;
+  width: 64px;
+  height: 64px;
+  border-radius: 32px;
   background: #f2141f;
   color: #fff;
   font-weight: bold;

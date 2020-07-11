@@ -88,15 +88,23 @@ export default function Main() {
             ))}
           </List>
           <Pagination>
-            <button onClick={handlePreviousPage}>
-              <FiArrowLeft size={24} />
-            </button>
-            <button onClick={handleHomePage}>
-              <FiHome size={24} />
-            </button>
-            <button onClick={handleNextPage}>
-              <FiArrowRight size={24} />
-            </button>
+            {offset > 0 ? (
+              <>
+                <button onClick={handlePreviousPage}>
+                  <FiArrowLeft size={24} />
+                </button>
+                <button onClick={handleHomePage}>
+                  <FiHome size={24} />
+                </button>
+                <button onClick={handleNextPage}>
+                  <FiArrowRight size={24} />
+                </button>
+              </>
+            ) : (
+              <button onClick={handleNextPage}>
+                <FiArrowRight size={24} />
+              </button>
+            )}
           </Pagination>
         </>
       )}

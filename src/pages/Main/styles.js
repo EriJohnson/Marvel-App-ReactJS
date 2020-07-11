@@ -66,10 +66,11 @@ export const Pagination = styled.div`
   padding: 0 80px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   margin-bottom: 64px;
 
   button {
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -82,7 +83,6 @@ export const Pagination = styled.div`
     transition: 0.2s;
     font-size: 12px;
     border: 2px solid transparent;
-    text-transform: uppercase;
 
     &:hover {
       opacity: 0.8;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams, useHistory } from 'react-router-dom'
 import md5 from 'md5'
 import Loader from 'react-loader-spinner'
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi'
@@ -16,19 +16,22 @@ const PUBLIC_KEY = process.env.REACT_APP_MARVEL_PUBLIC_KEY
 const PRIVATE_KEY = process.env.REACT_APP_MARVEL_PRIVATE_KEY
 
 export default function Main() {
+  const history = useHistory()
+  const { p } = useParams()
+  const page = parseInt(p)
+  const [offset, setOffset] = useState(page)
   const [heroes, setHeroes] = useState([])
   const [isLoading, setIsLoading] = useState(false)
-  const [page, setPage] = useState(0)
 
   function handleNextPage() {
-    setPage(prevState => prevState + 20)
+    setOffset(prevState => prevState + 20)
   }
 
   function handlePreviousPage() {
     if (page === 0) {
       return
     }
-    setPage(prevState => prevState - 20)
+    setOffset(prevState => prevState - 20)
   }
 
   const fetchApi = useCallback(async () => {
@@ -36,13 +39,14 @@ export default function Main() {
 
     const ts = new Date().getTime()
     const hash = md5(`${ts}${PRIVATE_KEY}${PUBLIC_KEY}`)
-    const url = `${API_BASE}?ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}&offset=${page}`
+    const url = `${API_BASE}?ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}&offset=${offset}`
     const resp = await fetch(url)
+    history.push(`/main/${offset}`)
     const { data } = await resp.json()
     setHeroes(data.results)
 
     setIsLoading(false)
-  }, [page])
+  }, [offset, history])
 
   useEffect(() => {
     fetchApi()
@@ -64,7 +68,7 @@ export default function Main() {
         <>
           <List>
             {heroes.map(hero => (
-              <Link key={hero.id} to={`/details/${hero.id}/${page}`}>
+              <Link key={hero.id} to={`/details/${page}/${hero.id}`}>
                 <Card>
                   <img
                     src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`}

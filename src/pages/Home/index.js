@@ -14,7 +14,7 @@ export default function Home() {
           <p>
             Uma aplicação para você conhecer detalhes dos seus heróis favoritos
           </p>
-          <Link to='/main/'>
+          <Link to='/main/0'>
             <Button>Conheça seus heróis</Button>
           </Link>
         </Section>

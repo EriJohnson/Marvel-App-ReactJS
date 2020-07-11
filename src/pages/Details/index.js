@@ -14,13 +14,14 @@ const PRIVATE_KEY = process.env.REACT_APP_MARVEL_PRIVATE_KEY
 
 export default function Main() {
   const history = useHistory()
+  const { p } = useParams()
   const { id } = useParams()
   const [details, setDetails] = useState([])
   const [listComics, setListComics] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
-  function handleClick() {
-    history.push('/main')
+  function handlePreviousPage() {
+    history.push(`/main/${p}`)
   }
 
   const fetchApi = useCallback(async () => {
@@ -96,7 +97,7 @@ export default function Main() {
             </Details>
           </Card>
 
-          <Button onClick={handleClick}>
+          <Button onClick={handlePreviousPage}>
             <FiArrowLeft size={16} />
           </Button>
         </>

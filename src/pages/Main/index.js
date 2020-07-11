@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react'
 import { Link, useParams, useHistory } from 'react-router-dom'
 import md5 from 'md5'
 import Loader from 'react-loader-spinner'
-import { FiArrowLeft, FiArrowRight } from 'react-icons/fi'
+import { FiArrowLeft, FiArrowRight, FiHome } from 'react-icons/fi'
 
 import moment from 'moment'
 import 'moment/locale/pt-br'
@@ -17,21 +17,27 @@ const PRIVATE_KEY = process.env.REACT_APP_MARVEL_PRIVATE_KEY
 
 export default function Main() {
   const history = useHistory()
-  const { p } = useParams()
-  const page = parseInt(p)
-  const [offset, setOffset] = useState(page)
+  const { pagination } = useParams()
+  const [offset, setOffset] = useState(+pagination)
   const [heroes, setHeroes] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
-  function handleNextPage() {
-    setOffset(prevState => prevState + 20)
-  }
-
   function handlePreviousPage() {
-    if (page === 0) {
+    if (offset === 0) {
       return
     }
     setOffset(prevState => prevState - 20)
+  }
+
+  function handleHomePage() {
+    if (offset === 0) {
+      return
+    }
+    setOffset(prevState => (prevState = 0))
+  }
+
+  function handleNextPage() {
+    setOffset(prevState => prevState + 20)
   }
 
   const fetchApi = useCallback(async () => {
@@ -68,7 +74,7 @@ export default function Main() {
         <>
           <List>
             {heroes.map(hero => (
-              <Link key={hero.id} to={`/details/${page}/${hero.id}`}>
+              <Link key={hero.id} to={`/details/${offset}/${hero.id}`}>
                 <Card>
                   <img
                     src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`}
@@ -83,10 +89,13 @@ export default function Main() {
           </List>
           <Pagination>
             <button onClick={handlePreviousPage}>
-              <FiArrowLeft size={16} />
+              <FiArrowLeft size={24} />
+            </button>
+            <button onClick={handleHomePage}>
+              <FiHome size={24} />
             </button>
             <button onClick={handleNextPage}>
-              <FiArrowRight size={16} />
+              <FiArrowRight size={24} />
             </button>
           </Pagination>
         </>

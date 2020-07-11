@@ -70,12 +70,6 @@ export const Details = styled.div`
   align-items: flex-start;
   height: 100%;
   min-width: 50%;
-
-  p {
-    color: #212529;
-    margin-bottom: 14px;
-    font-size: 14px;
-  }
 `
 export const Button = styled.button`
   margin: 32px 0;

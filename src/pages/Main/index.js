@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import md5 from 'md5'
 import Loader from 'react-loader-spinner'
@@ -31,20 +31,22 @@ export default function Main() {
     setPage(prevState => prevState - 20)
   }
 
-  useEffect(() => {
-    ;(async () => {
-      setIsLoading(true)
+  const fetchApi = useCallback(async () => {
+    setIsLoading(true)
 
-      const ts = new Date().getTime()
-      const hash = md5(`${ts}${PRIVATE_KEY}${PUBLIC_KEY}`)
-      const url = `${API_BASE}?ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}&offset=${page}`
-      const resp = await fetch(url)
-      const { data } = await resp.json()
-      setHeroes(data.results)
+    const ts = new Date().getTime()
+    const hash = md5(`${ts}${PRIVATE_KEY}${PUBLIC_KEY}`)
+    const url = `${API_BASE}?ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}&offset=${page}`
+    const resp = await fetch(url)
+    const { data } = await resp.json()
+    setHeroes(data.results)
 
-      setIsLoading(false)
-    })()
+    setIsLoading(false)
   }, [page])
+
+  useEffect(() => {
+    fetchApi()
+  }, [fetchApi])
 
   return (
     <Wrapper>
@@ -59,30 +61,32 @@ export default function Main() {
           timeout={3000}
         />
       ) : (
-        <List>
-          {heroes.map(hero => (
-            <Link key={hero.id} to={`/details/${hero.id}`}>
-              <Card>
-                <img
-                  src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`}
-                  alt={hero.description}
-                />
-                <h3>{hero.name}</h3>
-                <h4>Ultima atualização</h4>
-                <span>{moment(hero.modified).format('LL')}</span>
-              </Card>
-            </Link>
-          ))}
-        </List>
+        <>
+          <List>
+            {heroes.map(hero => (
+              <Link key={hero.id} to={`/details/${hero.id}/${page}`}>
+                <Card>
+                  <img
+                    src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`}
+                    alt={hero.description}
+                  />
+                  <h3>{hero.name}</h3>
+                  <h4>Ultima atualização</h4>
+                  <span>{moment(hero.modified).format('LL')}</span>
+                </Card>
+              </Link>
+            ))}
+          </List>
+          <Pagination>
+            <button onClick={handlePreviousPage}>
+              <FiArrowLeft size={16} />
+            </button>
+            <button onClick={handleNextPage}>
+              <FiArrowRight size={16} />
+            </button>
+          </Pagination>
+        </>
       )}
-      <Pagination>
-        <button onClick={handlePreviousPage}>
-          <FiArrowLeft size={16} />
-        </button>
-        <button onClick={handleNextPage}>
-          <FiArrowRight size={16} />
-        </button>
-      </Pagination>
     </Wrapper>
   )
 }

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import React, { useState, useEffect, useCallback } from 'react'
+import { useParams, useHistory } from 'react-router-dom'
 import md5 from 'md5'
 import Loader from 'react-loader-spinner'
 import { FiArrowLeft } from 'react-icons/fi'
@@ -13,29 +13,36 @@ const PUBLIC_KEY = process.env.REACT_APP_MARVEL_PUBLIC_KEY
 const PRIVATE_KEY = process.env.REACT_APP_MARVEL_PRIVATE_KEY
 
 export default function Main() {
+  const history = useHistory()
   const { id } = useParams()
   const [details, setDetails] = useState([])
   const [listComics, setListComics] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
-  useEffect(() => {
-    ;(async () => {
-      setIsLoading(true)
+  function handleClick() {
+    history.push('/main')
+  }
 
-      const ts = new Date().getTime()
-      const hash = md5(`${ts}${PRIVATE_KEY}${PUBLIC_KEY}`)
-      const url = `${API_BASE}/${id}?ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}`
-      const resp = await fetch(url)
-      const { data } = await resp.json()
-      const { results } = data
-      const { comics } = results[0]
+  const fetchApi = useCallback(async () => {
+    setIsLoading(true)
 
-      setDetails(results[0])
-      setListComics(comics)
+    const ts = new Date().getTime()
+    const hash = md5(`${ts}${PRIVATE_KEY}${PUBLIC_KEY}`)
+    const url = `${API_BASE}/${id}?ts=${ts}&apikey=${PUBLIC_KEY}&hash=${hash}`
+    const resp = await fetch(url)
+    const { data } = await resp.json()
+    const { results } = data
+    const { comics } = results[0]
 
-      setIsLoading(false)
-    })()
+    setDetails(results[0])
+    setListComics(comics)
+
+    setIsLoading(false)
   }, [id])
+
+  useEffect(() => {
+    fetchApi()
+  }, [fetchApi])
 
   return (
     <Wrapper>
@@ -50,49 +57,50 @@ export default function Main() {
           timeout={3000} //3 secs
         />
       ) : (
-        <Card>
-          <Thumbnail>
-            <h1>{details.name}</h1>
+        <>
+          <Card>
+            <Thumbnail>
+              <h1>{details.name}</h1>
 
-            <img
-              src={
-                details.thumbnail &&
-                `${details.thumbnail.path}.${details.thumbnail.extension}`
-              }
-              alt={details.name}
-            />
-          </Thumbnail>
+              <img
+                src={
+                  details.thumbnail &&
+                  `${details.thumbnail.path}.${details.thumbnail.extension}`
+                }
+                alt={details.name}
+              />
+            </Thumbnail>
 
-          <Details>
-            <h2>Descrição</h2>
-            {details.description ? (
-              <>
-                <p>{details.description}</p>
-              </>
-            ) : (
-              <p>Indisponível</p>
-            )}
+            <Details>
+              <h2>Descrição</h2>
+              {details.description ? (
+                <>
+                  <p>{details.description}</p>
+                </>
+              ) : (
+                <p>Indisponível</p>
+              )}
 
-            <h2>Quadrinhos</h2>
-            {listComics.items > 0 ? (
-              <ul>
-                {listComics.items &&
-                  listComics.items
-                    //Função para mostrar apenas dez quadrinhos
-                    .slice(0, 10)
-                    .map(item => <li key={item.name}>{item.name}</li>)}
-              </ul>
-            ) : (
-              <p>Indisponível</p>
-            )}
-          </Details>
-        </Card>
+              <h2>Quadrinhos</h2>
+              {listComics.items > 0 ? (
+                <ul>
+                  {listComics.items &&
+                    listComics.items
+                      //Função para mostrar apenas dez quadrinhos
+                      .slice(0, 10)
+                      .map(item => <li key={item.name}>{item.name}</li>)}
+                </ul>
+              ) : (
+                <p>Indisponível</p>
+              )}
+            </Details>
+          </Card>
+
+          <Button onClick={handleClick}>
+            <FiArrowLeft size={16} />
+          </Button>
+        </>
       )}
-      <Link to='/main'>
-        <Button>
-          <FiArrowLeft size={16} />
-        </Button>
-      </Link>
     </Wrapper>
   )
 }

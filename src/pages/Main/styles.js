@@ -26,7 +26,7 @@ export const Card = styled.li`
   width: 240px;
   height: 280px;
   background: #f7f7f8;
-  padding: 24px;
+  padding: 8px;
   border-radius: 8px;
   transition: 0.2s;
 
@@ -43,17 +43,21 @@ export const Card = styled.li`
   }
 
   h3 {
+    font-size: 16px;
     color: #212529;
-    margin-bottom: 16px;
+    margin-bottom: 32px;
   }
 
   h4 {
+    font-size: 12px;
     color: #212529;
     margin-bottom: 2px;
   }
 
   span {
+    font-size: 12px;
     color: #212529;
+    margin-bottom: 2px;
   }
 `
 export const Pagination = styled.div`

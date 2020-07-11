@@ -11,7 +11,7 @@ export default function Routes() {
       <Switch>
         <Route path='/' exact component={Home} />
         <Route path='/main/:pagination' component={Main} />
-        <Route path='/details/:p/:id' component={Details} />
+        <Route path='/details/:pagination/:id' component={Details} />
       </Switch>
     </BrowserRouter>
   )

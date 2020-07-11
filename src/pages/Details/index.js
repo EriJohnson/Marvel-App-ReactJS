@@ -14,14 +14,14 @@ const PRIVATE_KEY = process.env.REACT_APP_MARVEL_PRIVATE_KEY
 
 export default function Main() {
   const history = useHistory()
-  const { p } = useParams()
+  const { pagination } = useParams()
   const { id } = useParams()
   const [details, setDetails] = useState([])
   const [listComics, setListComics] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
   function handlePreviousPage() {
-    history.push(`/main/${p}`)
+    history.push(`/main/${pagination}`)
   }
 
   const fetchApi = useCallback(async () => {

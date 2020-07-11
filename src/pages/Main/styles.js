@@ -16,7 +16,7 @@ export const List = styled.ul`
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 40px;
   list-style: none;
-  margin-bottom: 280px;
+  margin-bottom: 64px;
 `
 export const Card = styled.li`
   display: flex;
@@ -32,38 +32,47 @@ export const Card = styled.li`
 
   &:hover {
     opacity: 0.96;
-    box-shadow: 0px 20px 40px rgba(242, 20, 31, 0.70);
+    box-shadow: 0px 20px 40px rgba(242, 20, 31, 0.7);
   }
-  
-  img{
+
+  img {
     height: 112px;
     width: 112px;
     border-radius: 56px;
     margin-bottom: 16px;
-    
   }
 
-  h3{
-    color:#212529;
+  h3 {
+    color: #212529;
     margin-bottom: 16px;
   }
 
-  h4{
-    color:#212529;
+  h4 {
+    color: #212529;
     margin-bottom: 2px;
   }
 
-  span{
-    color:#212529;
+  span {
+    color: #212529;
   }
+`
+export const Pagination = styled.div`
+  width: 100%;
+  max-width: 1080px;
+  padding: 0 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 64px;
 
   button{
+    
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 112px;
-  height: 24px;
-  border-radius: 240px;
+  width: 64px;
+  height: 64px;
+  border-radius: 32px;
   background: #f2141f;
   color: #fff;
   font-weight: bold;
@@ -76,5 +85,6 @@ export const Card = styled.li`
   &:hover {
     opacity: 0.8;
   }
+  
 
 `

@@ -35,6 +35,7 @@ export default function Main() {
     const { results } = data
     const { comics } = results[0]
 
+    console.log(comics)
     setDetails(results[0])
     setListComics(comics)
 
@@ -55,7 +56,7 @@ export default function Main() {
           color='#f2141f'
           height={512}
           width={512}
-          timeout={3000} //3 secs
+          timeout={3000}
         />
       ) : (
         <>
@@ -74,26 +75,19 @@ export default function Main() {
 
             <Details>
               <h2>Descrição</h2>
-              {details.description ? (
-                <>
-                  <p>{details.description}</p>
-                </>
-              ) : (
-                <p>Indisponível</p>
-              )}
+              {!details.description && <p>Indisponível</p>}
+              <p>{details.description}</p>
 
               <h2>Quadrinhos</h2>
-              {listComics.items > 0 ? (
-                <ul>
-                  {listComics.items &&
-                    listComics.items
-                      //Função para mostrar apenas dez quadrinhos
-                      .slice(0, 10)
-                      .map(item => <li key={item.name}>{item.name}</li>)}
-                </ul>
-              ) : (
-                <p>Indisponível</p>
-              )}
+              {!listComics.available && <p>Indisponível</p>}
+
+              <ul>
+                {listComics.items &&
+                  listComics.items
+                    //Função para mostrar apenas dez quadrinhos
+                    .slice(0, 10)
+                    .map(item => <li key={item.name}>{item.name}</li>)}
+              </ul>
             </Details>
           </Card>
 

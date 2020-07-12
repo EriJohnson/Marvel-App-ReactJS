@@ -88,7 +88,11 @@ export default function Main() {
             ))}
           </List>
           <Pagination>
-            {offset > 0 ? (
+            {!offset ? (
+              <button onClick={handleNextPage}>
+                <FiArrowRight size={24} />
+              </button>
+            ) : (
               <>
                 <button onClick={handlePreviousPage}>
                   <FiArrowLeft size={24} />
@@ -100,10 +104,6 @@ export default function Main() {
                   <FiArrowRight size={24} />
                 </button>
               </>
-            ) : (
-              <button onClick={handleNextPage}>
-                <FiArrowRight size={24} />
-              </button>
             )}
           </Pagination>
         </>

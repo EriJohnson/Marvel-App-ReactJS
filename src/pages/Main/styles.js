@@ -45,7 +45,7 @@ export const Card = styled.li`
   h3 {
     font-size: 16px;
     color: #212529;
-    margin-bottom: 32px;
+    margin-bottom: 16px;
   }
 
   h4 {

@@ -12,13 +12,10 @@ export const Wrapper = styled.div`
 `
 export const Card = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
   align-items: center;
   width: 1080px;
   min-height: 256px;
   background: #f7f7f8;
-  padding: 24px;
   border-radius: 8px;
   transition: 0.2s;
   padding: 32px;

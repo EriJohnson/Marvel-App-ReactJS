@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
   background-image: url(${img});
   background-repeat: no-repeat;
   background-size: cover;
+  margin: 0 auto;
 `
 
 export const Content = styled.div`
@@ -20,6 +21,12 @@ export const Content = styled.div`
   max-width: 1280px;
   height: 100vh;
   margin: 0 auto;
+
+  img {
+    @media (max-width: 416px) {
+      display: none;
+    }
+  }
 `
 export const Section = styled.section`
   width: 100%;

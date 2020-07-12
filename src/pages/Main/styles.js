@@ -13,10 +13,22 @@ export const Wrapper = styled.div`
 
 export const List = styled.ul`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   grid-gap: 40px;
   list-style: none;
   margin-bottom: 64px;
+
+  @media (min-width: 624px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 864px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 1152px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 `
 export const Card = styled.li`
   display: flex;

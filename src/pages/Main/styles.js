@@ -18,7 +18,7 @@ export const List = styled.ul`
   list-style: none;
   margin-bottom: 64px;
 
-  @media (min-width: 624px) {
+  @media (min-width: 560px) {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -55,19 +55,19 @@ export const Card = styled.li`
   }
 
   h3 {
-    font-size: 16px;
+    font-size: 1.6rem;
     color: #212529;
     margin-bottom: 16px;
   }
 
   h4 {
-    font-size: 12px;
+    font-size: 1.2rem;
     color: #212529;
     margin-bottom: 2px;
   }
 
   span {
-    font-size: 12px;
+    font-size: 1.2rem;
     color: #212529;
     margin-bottom: 2px;
   }
@@ -75,14 +75,13 @@ export const Card = styled.li`
 export const Pagination = styled.div`
   width: 100%;
   max-width: 1080px;
-  padding: 0 80px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 64px;
 
   button {
-    margin: 0 auto;
+    margin: 0 16px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -93,7 +92,7 @@ export const Pagination = styled.div`
     color: #fff;
     font-weight: bold;
     transition: 0.2s;
-    font-size: 12px;
+    font-size: 1.2rem;
     border: 2px solid transparent;
 
     &:hover {

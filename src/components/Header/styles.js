@@ -10,11 +10,15 @@ export const Container = styled.div`
 
   img {
     height: 64px;
+
+    @media (max-width: 540px) {
+      display: none;
+    }
   }
 
   span {
     font-weight: bold;
-    font-size: 24px;
+    font-size: 2.4rem;
 
     transition: 0.2s;
 

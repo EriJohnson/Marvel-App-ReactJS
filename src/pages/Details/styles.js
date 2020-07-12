@@ -28,18 +28,19 @@ export const Card = styled.div`
   h1 {
     color: #212529;
     margin-bottom: 16px;
+    font-size: 3.2rem;
   }
 
   h2 {
     color: #212529;
-    margin-bottom: 16px;
-    font-size: 14px;
+    margin-bottom: 24px;
+    font-size: 2.4rem;
   }
 
   p {
     color: #212529;
     margin-bottom: 14px;
-    font-size: 14px;
+    font-size: 1.6rem;
   }
 
   span {
@@ -81,7 +82,7 @@ export const Button = styled.button`
   color: #fff;
   font-weight: bold;
   transition: 0.2s;
-  font-size: 14px;
+  font-size: 1.4rem;
   border: 2px solid transparent;
 
   text-transform: uppercase;

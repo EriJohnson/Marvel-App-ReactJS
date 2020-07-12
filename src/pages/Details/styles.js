@@ -13,12 +13,23 @@ export const Wrapper = styled.div`
 export const Card = styled.div`
   display: flex;
   align-items: center;
-  width: 1080px;
+  justify-content: center;
+  width: 75%;
+  height: 80%;
+  max-width: 1080px;
   min-height: 256px;
   background: #f7f7f8;
   border-radius: 8px;
   transition: 0.2s;
   padding: 32px;
+  overflow: scroll;
+
+  @media (max-width: 1232px) {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 80%;
+  }
 
   li {
     color: #212529;
@@ -54,6 +65,7 @@ export const Thumbnail = styled.div`
   justify-content: center;
   height: 100%;
   min-width: 50%;
+  background: orange;
 
   img {
     max-width: 90%;
@@ -68,6 +80,12 @@ export const Details = styled.div`
   align-items: flex-start;
   height: 100%;
   min-width: 50%;
+  background: blueviolet;
+
+  @media (max-width: 1232px) {
+    padding-top: 32px;
+    width: 100%;
+  }
 `
 export const Button = styled.button`
   margin: 32px 0;

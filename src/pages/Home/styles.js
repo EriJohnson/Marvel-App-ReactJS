@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: auto;
+  height: 100vh;
   background-image: url(${img});
   background-repeat: no-repeat;
   background-size: cover;
@@ -23,14 +23,21 @@ export const Content = styled.div`
   align-items: center;
   width: 90%;
   max-width: 1280px;
-  height: 100vh;
+  height: 100%;
   margin: 0 auto;
+
+  @media (max-width: 1184px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 32px;
+  }
 
   img {
     max-width: 100%;
     height: auto;
 
-    @media (max-width: 540px) {
+    @media (max-width: 1184px) {
       display: none;
     }
   }
@@ -39,16 +46,32 @@ export const Section = styled.section`
   width: 100%;
   margin-bottom: 244px;
   margin-right: 32px;
+  background: orange;
+
+  @media (max-width: 1184px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
   h1 {
     font-size: 9.6rem;
     font-weight: bolder;
     margin-bottom: 24px;
+
+    @media (max-width: 1184px) {
+      text-align: center;
+    }
   }
 
   p {
     font-size: 2.6rem;
     margin-bottom: 28px;
+
+    @media (max-width: 1184px) {
+      text-align: center;
+    }
   }
 `
 

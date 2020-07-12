@@ -8,6 +8,11 @@ export const Container = styled.div`
   max-width: 1080px;
   margin: 80px 0;
 
+  @media (max-width: 260px) {
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
   img {
     height: 64px;
 
@@ -37,6 +42,10 @@ export const Action = styled.div`
   margin-left: 24px;
   transition: 0.4s;
   opacity: 0.72;
+
+  @media (max-width: 260px) {
+    margin-top: 24px;
+  }
 
   &:hover {
     opacity: 1;

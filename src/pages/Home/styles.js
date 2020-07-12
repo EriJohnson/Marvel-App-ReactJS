@@ -14,16 +14,17 @@ export const Wrapper = styled.div`
 
 export const Content = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   max-width: 1280px;
   height: 100vh;
+  margin: 0 auto;
 `
 export const Section = styled.section`
   width: 100%;
   margin-bottom: 244px;
+  margin-right: 32px;
 
   h1 {
     font-size: 96px;
@@ -40,6 +41,7 @@ export const Section = styled.section`
 export const Button = styled.button`
   width: 330px;
   height: 80px;
+  border-radius: 8px;
   background: #f2141f;
   color: #fff;
   font-weight: bold;

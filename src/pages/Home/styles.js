@@ -38,7 +38,8 @@ export const Content = styled.div`
     height: auto;
 
     @media (max-width: 1184px) {
-      display: none;
+      order: -1;
+      margin-top: 20%;
     }
   }
 `
@@ -46,13 +47,16 @@ export const Section = styled.section`
   width: 100%;
   margin-bottom: 244px;
   margin-right: 32px;
-  background: orange;
 
   @media (max-width: 1184px) {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 24px;
+
+    margin-bottom: 20%;
+    margin-right: 0;
   }
 
   h1 {
@@ -62,6 +66,7 @@ export const Section = styled.section`
 
     @media (max-width: 1184px) {
       text-align: center;
+      font-size: 3.2rem;
     }
   }
 
@@ -71,6 +76,7 @@ export const Section = styled.section`
 
     @media (max-width: 1184px) {
       text-align: center;
+      font-size: 1.6rem;
     }
   }
 `
@@ -87,8 +93,17 @@ export const Button = styled.button`
   border: 2px solid transparent;
   margin-top: 16px;
   text-transform: uppercase;
+  align-self: center;
 
   &:hover {
     opacity: 0.8;
+  }
+
+  @media (max-width: 1184px) {
+    align-self: center;
+    font-size: 1.4rem;
+    max-width: 100%;
+    height: 40px;
+    padding: 0 8px;
   }
 `

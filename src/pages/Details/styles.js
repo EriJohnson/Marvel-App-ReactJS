@@ -65,7 +65,6 @@ export const Thumbnail = styled.div`
   justify-content: center;
   height: 100%;
   min-width: 50%;
-  background: orange;
 
   img {
     max-width: 90%;
@@ -80,7 +79,6 @@ export const Details = styled.div`
   align-items: flex-start;
   height: 100%;
   min-width: 50%;
-  background: blueviolet;
 
   @media (max-width: 1232px) {
     padding-top: 32px;

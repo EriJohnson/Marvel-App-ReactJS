@@ -4,6 +4,10 @@ Aplicação feita em ReactJS que consome a API da Marvel
 
 [[Confira aqui:]](https://marvel-app-api.netlify.app/)
 
+<img src="readme/1-home.jpg" width="720px" /><br>
+<img src="readme/2-main.jpg" width="720px" /><br>
+<img src="readme/3-details.jpg" width="720px" /><br>
+
 ### Configuração
 
 #### Crie uma conta na Marvel Develope Portal

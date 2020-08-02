@@ -45,7 +45,7 @@ export const Card = styled.li`
   &:hover {
     opacity: 0.96;
     box-shadow: 0px 20px 40px rgba(242, 20, 31, 0.7);
-    transform: translateY(-7px);
+    transform: scale(1.05);
   }
 
   img {

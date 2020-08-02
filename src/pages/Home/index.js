@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 
-import Heroes from '../../assets/imgs/Heroes.png'
+import Heroes from '../../assets/imgs/Heroes2.png'
 
 import { Wrapper, Content, Section, Button } from './styles'
 
